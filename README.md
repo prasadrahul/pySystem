@@ -4,7 +4,6 @@ System administration using python web framework
 
 
 ## Basic web Development setup using python and Django
----
 
 **With Windows OS:**
 
@@ -23,7 +22,6 @@ Download Python Installer from [https://www.python.org/downloads/] (https://www.
 `$ python -c "import django; print(django.get_version())"`
 
 ## Django Project Example
----
 
 **Create New Project i.e. pySystem**
 
