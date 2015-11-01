@@ -31,21 +31,16 @@ Download Python Installer from [https://www.python.org/downloads/] (https://www.
 
 This will create project directory as shown
 
-
->pySystem/
-
->  |-  manage.py
->
->  |-  pySystem/
->
->      |-  __init__.py
->
->      |- settings.py
->
->      |- urls.py
->
->      |- wsgi.py
-
+<pre>
+pySystem/
+  |
+  |-  manage.py
+  |-  pySystem/
+         |-  __init__.py
+         |- settings.py
+         |- urls.py
+         |- wsgi.py
+</pre>
 
 * The outer pySystem/ root directory is just a container for your project.
 Its name doesn’t matter to Django; you can rename it to anything you like.
@@ -80,12 +75,10 @@ See How to deploy with WSGI for more details.
 
 vi pySystem\settings.py
 
->
->DATABASES =
-> {
-
->    'default': {
->
+<pre>
+DATABASES =
+ {
+    'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql', #works with windows
@@ -96,46 +89,36 @@ vi pySystem\settings.py
         'HOST': 'localhost',
     }
 }
+</pre>
 
-`$ python manage.py migrate  #to install DB for pre installed apps`
+**Install DB for pre installed apps**
+
+`$ python manage.py migrate `
 
 ---
 
->mysql> use py_system;
+You can Verify Database Table Generated
 
->Database changed
-
->mysql> show tables;
-
->+----------------------------+
-
->| Tables_in_py_system        |
-
->+----------------------------+
-
->| auth_group                 |
-
->| auth_group_permissions     |
-
->| auth_permission            |
-
->| auth_user                  |
-
->| auth_user_groups           |
-
->| auth_user_user_permissions |
-
->| django_admin_log           |
-
->| django_content_type        |
-
->| django_migrations          |
-
->| django_session             |
-
->+----------------------------+
-
->10 rows in set (0.00 sec)
+<pre>
+mysql> use py_system;
+Database changed
+mysql> show tables;
++----------------------------+
+| Tables_in_py_system        |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+10 rows in set (0.00 sec)
+</pre>
 
 **Create New App**
 
@@ -149,18 +132,13 @@ vi pySystem\settings.py
 ---
 
 Performing system checks...
-
-
+<br>
 System check identified no issues (0 silenced).
-
-
+<br>
 November 01, 2015 - 09:05:29
-
-
+<br>
 Django version 1.7, using settings 'pySystem.settings'
-
-
+<br>
 Starting development server at http://127.0.0.1:8000/
-
-
+<br>
 Quit the server with CTRL-BREAK.}
