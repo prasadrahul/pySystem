@@ -25,7 +25,7 @@ Download Python Installer from [https://www.python.org/downloads/] (https://www.
 ## Django Project Example
 ---
 
-# Create New Project i.e. pySystem
+**Create New Project i.e. pySystem**
 
 `$ django-admin startproject pySystem`
 
@@ -34,11 +34,9 @@ This will create project directory as shown
 
 >pySystem/
 
->|
-
->manage.py
+>  |-  manage.py
 >
->pySystem/
+>  |-  pySystem/
 >
 >      |-  __init__.py
 >
@@ -74,7 +72,9 @@ You can read more about URLs in URL dispatcher.
 An entry-point for WSGI-compatible web servers to serve your project.
 See How to deploy with WSGI for more details.
 
-`$ pip install mysqlclient #install a MySQL database adapter for Python`
+**Install a MySQL database adapter for Python**
+
+`$ pip install mysqlclient `
 
 **Modify Database setting as per requirement**
 
@@ -83,7 +83,7 @@ vi pySystem\settings.py
 >
 >DATABASES =
 > {
->
+
 >    'default': {
 >
         #'ENGINE': 'django.db.backends.sqlite3',
