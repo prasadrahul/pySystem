@@ -3,7 +3,7 @@
 
 <title class="txt_pySystem_Login">pySytem - [Login]</title>
 
-
+<!--#With Included CSS and Static Image File #-->
 <style type="text/css">
 body {
     background: #225378  no-repeat fixed center center;
@@ -14,7 +14,7 @@ body {
 .logo {
     width: 213px;
     height: 56px;
-    background: url('../public/images/pySystem.png') no-repeat;
+    background: url('/static/images/pySystem.png') no-repeat;
     margin: 30px auto;
 }
 
@@ -50,22 +50,22 @@ body {
 }
 
 .login-block input#username {
-    background: #fff url('../public/images/username_icon.png') 20px top no-repeat;
+    background: #fff url('/static/images/username_icon.png') 20px top no-repeat;
     background-size: 16px 80px;
 }
 
 .login-block input#username:focus {
-    background: #fff url('../public/images/username_icon.png') 20px bottom no-repeat;
+    background: #fff url('/static/images/username_icon.png') 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
 .login-block input#password {
-    background: #fff url('../public/images/password_icon.png') 20px top no-repeat;
+    background: #fff url('/static/images/password_icon.png') 20px top no-repeat;
     background-size: 16px 80px;
 }
 
 .login-block input#password:focus {
-    background: #fff url('../public/images/password_icon.png') 20px bottom no-repeat;
+    background: #fff url('/static/images/password_icon.png') 20px bottom no-repeat;
     background-size: 16px 80px;
 }
 
@@ -123,7 +123,7 @@ body {
 
 </style>
 
-<link rel="stylesheet" href="css/style.css" media="screen" />
+<!--<link rel="stylesheet" href="css/style.css" media="screen" />-->
 
 </head>
 
@@ -135,11 +135,12 @@ body {
     <input type="password" value="" placeholder="Password" id="password" />
     <button>Submit</button>
     <br>
-    <br>
 </div>
 
 <div class="signup-block">
     <button>SignUp</button>
+    <br>
+    <p>Current Time: {{ current_date }} </p>
 </div>
 
 </body>

@@ -118,6 +118,12 @@ mysql> show tables;
 10 rows in set (0.00 sec)
 </pre>
 
+After creating the database structure,
+
+**create an administrative account by typing:**
+
+`$ python manage.py createsuperuser`
+
 **Create New App**
 
 `$ python manage.py startapp sysadmin`
