@@ -66,14 +66,21 @@ from sysadmin.models import Logintype
 p1 = Logintype( login_id=1,login_type_name="admin",login_type=1)
 p1.save()
 
->>> logintype_list = Logintype.objects.all()
->>> logintype_list
+>>from sysadmin.models import Logintype
+>>logintype_list = Logintype.objects.all()
+>>logintype_list
 
 from sysadmin.models import Loginmanagement
 p2 = Loginmanagement( login_name="rahul",first_name="Rahul",last_name="Prasad",login_levelid_id=1,login_pwd="rahul",email="prasad@rahul.com",
 city="Bangaore",state_province="KA",country="IN")
 p2.save()
 
->>> loginmanagement_list = Loginmanagement.objects.all()
->>> loginmanagement_list
+
+ADDING MODEL STRING REPRESENTATIONS (by adding a method called __str__() in model class)
+
+from sysadmin.models import Loginmanagement
+loginmanagement_list = Loginmanagement.objects.all()
+loginmanagement_list
+
+Out[3]: [<Loginmanagement: rahul Rahul Prasad>]
 
