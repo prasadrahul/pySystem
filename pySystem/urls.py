@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from sysadmin.views import current_datetime, login_index
+from sysadmin.views import current_datetime, login_index, register_index
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^time/$', current_datetime ),
     url(r'^$', login_index),
+    url(r'^register/$', register_index ),
+
 )

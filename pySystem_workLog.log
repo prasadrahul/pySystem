@@ -3,3 +3,56 @@ pySystem
 
 python manage.py runserver
 
+#Validate Modles
+python manage.py validate
+
+#Genrate SQL Equivalent (Not work with Migrate)
+python manage.py sqlall sysadmin
+
+----------------------------------
+BEGIN;
+CREATE TABLE `sysadmin_logintype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `login_id` varchar(10) NOT NULL,
+    `login_type_name` varchar(30) NOT NULL,
+    `login_type` varchar(40) NOT NULL
+)
+;
+CREATE TABLE `sysadmin_loginmanagement` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `login_name` varchar(30) NOT NULL,
+    `first_name` varchar(30) NOT NULL,
+    `last_name` varchar(40) NOT NULL,
+    `login_levelid_id` integer NOT NULL,
+    `login_pwd` varchar(30) NOT NULL,
+    `email` varchar(75) NOT NULL,
+    `city` varchar(60) NOT NULL,
+    `state_province` varchar(30) NOT NULL,
+    `country` varchar(50) NOT NULL,
+    `create_date` date NOT NULL
+)
+;
+ALTER TABLE `sysadmin_loginmanagement` ADD CONSTRAINT `login_levelid_id` FOREIGN KEY (`login_levelid_id`) REFERENCES `sysadmin_logintype` (`id`);
+CREATE INDEX `sysadmin_loginmanagement` ON `sysadmin_loginmanagement` (`login_levelid_id`);
+
+COMMIT;
+
+----------------------------------
+
+#Django provides an easier way of committing the SQL to the database. Run the syncdb command, like so:
+
+$ python manage.py syncdb
+
+Operations to perform:
+  Synchronize unmigrated apps: sysadmin
+  Apply all migrations: (none)
+Synchronizing apps without migrations:
+  Creating tables...
+    Creating table sysadmin_logintype
+    Creating table sysadmin_loginmanagement
+  Installing custom SQL...
+  Installing indexes...
+Running migrations:
+  No migrations to apply.
+
+

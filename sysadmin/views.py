@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.template import Context
 from django.template.loader import get_template
 from django.shortcuts import render_to_response
+from django.utils import timezone
+
 import datetime
 
 
@@ -17,5 +19,12 @@ def current_datetime(request):
 
 
 def login_index(request):
-    now = datetime.datetime.now()
-    return render_to_response('index.html', {'current_date':now})
+    current_date = datetime.datetime.now()
+    timezone_name = timezone.get_current_timezone_name()
+    return render_to_response('index.html', locals())
+
+def register_index(request):
+        current_date = datetime.datetime.now()
+        timezone_name = timezone.get_current_timezone_name()
+        return render_to_response('register_form.html', locals())
+
