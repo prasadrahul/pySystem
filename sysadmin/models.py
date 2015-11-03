@@ -16,7 +16,7 @@ class Loginmanagement(models.Model):
     city = models.CharField(max_length=60)
     state_province = models.CharField(max_length=30)
     country = models.CharField(max_length=50)
-    create_date = models.DateField()
+    create_date = models.DateTimeField(auto_now_add=True, blank=True)
 
 
 

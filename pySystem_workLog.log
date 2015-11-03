@@ -29,9 +29,10 @@ CREATE TABLE `sysadmin_loginmanagement` (
     `city` varchar(60) NOT NULL,
     `state_province` varchar(30) NOT NULL,
     `country` varchar(50) NOT NULL,
-    `create_date` date NOT NULL
+    `create_date` datetime(6) NOT NULL
 )
 ;
+
 ALTER TABLE `sysadmin_loginmanagement` ADD CONSTRAINT `login_levelid_id` FOREIGN KEY (`login_levelid_id`) REFERENCES `sysadmin_logintype` (`id`);
 CREATE INDEX `sysadmin_loginmanagement` ON `sysadmin_loginmanagement` (`login_levelid_id`);
 
@@ -55,4 +56,24 @@ Synchronizing apps without migrations:
 Running migrations:
   No migrations to apply.
 
+
+BASIC DATA ACCESS
+
+python manage.py shell
+
+
+from sysadmin.models import Logintype
+p1 = Logintype( login_id=1,login_type_name="admin",login_type=1)
+p1.save()
+
+>>> logintype_list = Logintype.objects.all()
+>>> logintype_list
+
+from sysadmin.models import Loginmanagement
+p2 = Loginmanagement( login_name="rahul",first_name="Rahul",last_name="Prasad",login_levelid_id=1,login_pwd="rahul",email="prasad@rahul.com",
+city="Bangaore",state_province="KA",country="IN")
+p2.save()
+
+>>> loginmanagement_list = Loginmanagement.objects.all()
+>>> loginmanagement_list
 
