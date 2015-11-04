@@ -84,3 +84,86 @@ loginmanagement_list
 
 Out[3]: [<Loginmanagement: rahul Rahul Prasad>]
 
+---------------------
+MODEL OPERATIONS
+---------------------
+SELECTING OBJECTS:
+
+>>> Loginmanagement.objects.all()
+[<Loginmanagement: Addison-Wesley>, <Loginmanagement: O'Reilly>, <Loginmanagement: Apress Publishing>]
+
+This roughly translates to this SQL:
+
+SELECT
+id, name, address, city, state_province, country, website
+FROM book_Loginmanagement;
+
+
+Filtering Data:
+
+While fetching all objects certainly has its uses, most of the time we’re going to want to deal with a subset of the data. We’ll
+do this with the filter() method:
+
+>>> Loginmanagement.objects.filter(name="Apress Publishing")
+[<Loginmanagement: Apress Publishing>]
+
+filter() takes keyword arguments that get translated into the appropriate SQL WHERE clauses.
+
+SELECT
+id, name, address, city, state_province, country, website
+FROM book_Loginmanagement
+WHERE name = 'Apress Publishing';
+
+Retrieving Single Objects:
+
+Sometimes you want to fetch only a single object. That’s what the get() method is for:
+>>> Loginmanagement.objects.get(name="Apress Publishing")
+<Loginmanagement: Apress Publishing>
+
+Instead of a list (rather, QuerySet), only a single object is returned. Because of that, a query resulting in multiple objects will
+cause an exception:
+
+>>> Loginmanagement.objects.get(name="Penguin")
+Traceback (most recent call last):
+...
+DoesNotExist: Loginmanagement matching query does not exist.
+
+Ordering Data:
+
+>>> Loginmanagement.objects.order_by("name")
+[<Loginmanagement: Apress Publishing>, <Loginmanagement: Addison-Wesley>, <Loginmanagement:
+O'Reilly>]
+
+This doesn’t look much different from the earlier all() example, but the SQL now includes a specific ordering:
+
+SELECT
+id, name, address, city, state_province, country, website
+FROM book_Loginmanagement
+
+
+Chaining Lookups:
+
+Loginmanagement.objects.filter(country="U.S.A.").order_by("-name")
+[<Loginmanagement: O'Reilly>, <Loginmanagement: Apress Publishing>, <Loginmanagement:
+Addison-Wesley>]
+
+SELECT
+id, name, address, city, state_province, country, website
+FROM book_Loginmanagement
+WHERE country = 'U.S.A'
+ORDER BY name DESC;
+
+Slicing Data:
+
+Loginmanagement.objects.all()[0]
+<Loginmanagement: Addison-Wesley>
+
+
+SELECT
+id, name, address, city, state_province, country, website
+FROM book_Loginmanagement
+ORDER BY name
+LIMIT 1;
+
+
+)

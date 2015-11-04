@@ -3,6 +3,8 @@ from django.template import Context
 from django.template.loader import get_template
 from django.shortcuts import render_to_response
 from django.utils import timezone
+from sysadmin.models import Loginmanagement
+from django.core import serializers
 
 import datetime
 
@@ -28,3 +30,8 @@ def register_index(request):
         timezone_name = timezone.get_current_timezone_name()
         return render_to_response('register_form.html', locals())
 
+def register_new_user(request):
+        login_list = Loginmanagement.objects.all()
+        login_data = serializers.serialize("json", login_list)
+        # return HttpResponse(login_data, content_type='application/json')
+        return render_to_response('register_form.html', locals())
