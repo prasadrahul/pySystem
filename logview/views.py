@@ -6,7 +6,8 @@ from apache_log_parser_regex import dictify_logline
 import os
 import operator
 
-log_dir = '/var/log/apache2'
+# log_dir = '/var/log/apache2'   # with Linux
+log_dir = 'C:/cygwin/var/log/apache2' #with Window
 
 def get_log_dict(logline):
     l = dictify_logline(logline)
